@@ -1,5 +1,9 @@
 @echo off
 title Calculator
+echo Display in English (y/n)?
+echo Mostrar en ingles (y/n)?
+set /p lang= "--> "
+if %lang%==y goto english
 :calculadora
 cls
 echo Calculadora
@@ -68,3 +72,73 @@ set /a solucion=%num1%/%num2%
 echo La solucion es %solucion%
 ping localhost -n 2 >nul
 goto calculadora
+
+
+:english
+cls
+echo Calculator
+echo.
+echo 1.-Add   2.-Subtract 3.-Multiply
+echo 4.-Divide 5.-Average
+set /p operacion=
+if %operacion%==1 (goto engsumar)
+if %operacion%==2 (goto engrestar)
+if %operacion%==3 (goto engmultiplicar)
+if %operacion%==4 (goto engdividir)
+if %operacion%==5 (goto engmedias)
+goto english
+:engsumar
+cls
+echo Add
+echo Enter the first number to add
+set /p num1=
+echo Enter the second number to add
+set /p num2=
+set /a solucion=%num1%+%num2%
+echo The solution is %solucion%
+ping localhost -n 2 >nul
+goto english
+:engrestar
+cls
+echo Subtract
+echo Enter the first number to subtract
+set /p num1=
+echo Enter the second number to subtract
+set /p num2=
+set /a solucion=%num1%-%num2%
+echo The solution is %solucion%
+ping localhost -n 2 >nul
+goto english
+:engmultiplicar
+cls
+echo Multiply
+echo Enter the first number to multiply
+set /p num1=
+echo Enter the second number to multiply
+set /p num2=
+set /a solucion=%num1%*%num2%
+echo The solution is %solucion%
+ping localhost -n 2 >nul
+goto english
+:engmedias
+cls
+echo Make Average
+echo Enter the first number to average
+set /p num1=
+echo Enter the second number to average
+set /p num2=
+set /a solucion=(%num1%+%num2%)/2
+echo The solution is %solucion%
+ping localhost -n 2 >nul
+goto english
+:engdividir
+cls
+echo Divide
+echo Enter the first number to divide
+set /p num1=
+echo Enter the second number to divide
+set /p num2=
+set /a solucion=%num1%/%num2%
+echo The solution is %solucion%
+ping localhost -n 2 >nul
+goto english
